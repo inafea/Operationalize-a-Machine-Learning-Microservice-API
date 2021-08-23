@@ -5,14 +5,13 @@
 
 # Step 1:
 # Create dockerpath
-export dockerpath='ibrahimnafea/udacitymicroservices:latest'
+dockerpath=ibrahimnafea/udacity-cloud-devops-p4
 
-
-# Step 2:  
+# Step 2:
 # Authenticate & tag
-docker login --username karimg75
-docker tag microservices $dockerpath
-echo "Docker ID and Image: $dockerpath" 
+echo "Docker ID and Image: $dockerpath"
+docker login -u minorpatch
+docker tag api $dockerpath
 
 # Step 3:
 # Push image to a docker repository

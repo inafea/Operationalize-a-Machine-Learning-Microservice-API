@@ -4,12 +4,12 @@
 
 # Step 1:
 # Build image and add a descriptive tag
-docker build . --tag=udacitymicroservices
+docker build --tag=api .
 
-# Step 2: 
+# Step 2:
 # List docker images
 docker image ls
 
-# Step 3: 
+# Step 3:
 # Run flask app
-docker run -it --rm --name udacitymicroservices -p 8000:80 udacitymicroservices
+docker run -p 8080:80 api
