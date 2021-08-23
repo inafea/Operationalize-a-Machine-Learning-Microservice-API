@@ -5,7 +5,7 @@
 
 # Step 1:
 # Create dockerpath
-dockerpath=ibrahimnafea/udacity-cloud-devops-p4
+dockerpath=ibrahimnafea/udacity-p4
 
 # Step 2:
 # Authenticate & tag

@@ -1,4 +1,4 @@
-[![danilobrinu](https://circleci.com/gh/danilobrinu/udacity-cloud-devops-engineer-project-4.svg?style=svg)](https://circleci.com/gh/danilobrinu/udacity-cloud-devops-engineer-project-4)
+[![inafea](https://circleci.com/gh/inafea/Operationalize-a-Machine-Learning-Microservice-API.svg?style=svg)](https://circleci.com/gh/inafea/Operationalize-a-Machine-Learning-Microservice-API)
 
 ## Project Overview
 
@@ -10,13 +10,13 @@ You are given a pre-trained, `sklearn` model that has been trained to predict ho
 
 Your project goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. In this project you will:
 
--   Test your project code using linting
--   Complete a Dockerfile to containerize this application
--   Deploy your containerized application using Docker and make a prediction
--   Improve the log statements in the source code for this application
--   Configure Kubernetes and create a Kubernetes cluster
--   Deploy a container using Kubernetes and make a prediction
--   Upload a complete Github repo with CircleCI to indicate that your code has been tested
+- Test your project code using linting
+- Complete a Dockerfile to containerize this application
+- Deploy your containerized application using Docker and make a prediction
+- Improve the log statements in the source code for this application
+- Configure Kubernetes and create a Kubernetes cluster
+- Deploy a container using Kubernetes and make a prediction
+- Upload a complete Github repo with CircleCI to indicate that your code has been tested
 
 You can find a detailed [project rubric, here](https://review.udacity.com/#!/rubrics/2576/view).
 
@@ -26,8 +26,8 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 
 ## Setup the Environment
 
--   Create a virtualenv and activate it
--   Run `make install` to install the necessary dependencies
+- Create a virtualenv and activate it
+- Run `make install` to install the necessary dependencies
 
 ### Running `app.py`
 
@@ -37,10 +37,10 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 
 ### Kubernetes Steps
 
--   Setup and Configure Docker locally
--   Setup and Configure Kubernetes locally
--   Create Flask app in Container
--   Run via kubectl
+- Setup and Configure Docker locally
+- Setup and Configure Kubernetes locally
+- Create Flask app in Container
+- Run via kubectl
 
 ## Tasks
 
@@ -48,12 +48,12 @@ To see the screenshots of each task go to the `screenshots` directory.
 
 ### 1. Complete the Dockerfile
 
--   Specify your python version
--   Specify a working directory.
--   Copy the app.py source code to that directory
--   Install any dependencies in requirements.txt (`make install`)
--   Expose a port when the container is created (port 80 is standard).
--   Specify that the app runs at container launch.
+- Specify your python version
+- Specify a working directory.
+- Copy the app.py source code to that directory
+- Install any dependencies in requirements.txt (`make install`)
+- Expose a port when the container is created (port 80 is standard).
+- Specify that the app runs at container launch.
 
 > **Note:** If you want to install python dependencies and hadolint use `make install-all`
 
@@ -67,9 +67,9 @@ $ make lint
 
 ### 2. Run a Container & Make a Prediction
 
--   Build the docker image from the Dockerfile; it is recommended that you use an optional --tag parameter as described in the build documentation.
--   List the created docker images (for logging purposes).
--   Run the containerized Flask app; publish the container’s port (`80`) to a host port (`8000`).
+- Build the docker image from the Dockerfile; it is recommended that you use an optional --tag parameter as described in the build documentation.
+- List the created docker images (for logging purposes).
+- Run the containerized Flask app; publish the container’s port (`80`) to a host port (`8000`).
 
 Run the container using the `run_docker.sh` script created before following the steps above:
 
@@ -85,8 +85,8 @@ $ . ./make_prediction.sh # Don't forget run the container before
 
 ### 3. Improve Logging & Save Output
 
--   Add a prediction log statement
--   Run the container and make a prediction to check the logs
+- Add a prediction log statement
+- Run the container and make a prediction to check the logs
 
 > **Note:** If you don't see any logs on your terminal you can use the `docker logs` command, to get container id of your docker app you can use `docker ps` and used that with the `docker logs` command. e.g: `docker ps` and the container id is `4c01db0b339c` your command to get the logs is `docker logs 4c01db0b339c`
 
@@ -102,11 +102,11 @@ d7886598dbe2        crosbymichael/redis:latest   /redis-server --dir    33 minut
 
 ### 4. Upload the Docker Image
 
--   Create a [Docker Hub](https://hub.docker.com/) account
--   Built the docker container with this command `docker build --tag=<your_tag> .` **(Don't forget the tag name)**
--   Define a `dockerpath` which is `<docker_hub_username>/<project_name>` e.g: `minorpath/kubernetes-p4`
--   Authenticate and tag image
--   Push your docker image to the `dockerpath`
+- Create a [Docker Hub](https://hub.docker.com/) account
+- Built the docker container with this command `docker build --tag=<your_tag> .` **(Don't forget the tag name)**
+- Define a `dockerpath` which is `<docker_hub_username>/<project_name>` e.g: `minorpath/kubernetes-p4`
+- Authenticate and tag image
+- Push your docker image to the `dockerpath`
 
 > Note: replace <your_tag> with the tag name that you want to use. For example: api -> `docker build --tag=api .`
 
@@ -118,17 +118,17 @@ $ . ./upload_docker.sh
 
 ### 5. Configure Kubernetes to Run Locally
 
--   [Install Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux)
--   [Install Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+- [Install Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux)
+- [Install Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
 
 > **Note:** Check the `Workarounds` section for common issues.
 
 ### 6. Deploy with Kubernetes and Save Output Logs
 
--   Define a dockerpath which will be `<docker_hub_username>/<project_name>`, this should be the same name as your uploaded repository (the same as in upload_docker.sh)
--   Run the docker container with kubectl; you’ll have to specify the container and the port
--   List the kubernetes pods
--   Forward the container port to a host port, using the same ports as before
+- Define a dockerpath which will be `<docker_hub_username>/<project_name>`, this should be the same name as your uploaded repository (the same as in upload_docker.sh)
+- Run the docker container with kubectl; you’ll have to specify the container and the port
+- List the kubernetes pods
+- Forward the container port to a host port, using the same ports as before
 
 After complete all steps run the kubernetes using `run_kubernetes.sh` script:
 
@@ -146,9 +146,9 @@ If you want to delete the kubernetes cluster just run this command `minikube del
 
 ### 8. CircleCI Integration
 
--   Create a [CircleCI Account](https://circleci.com/) (use your Github account for a better integration)
--   Create a config using this [template](https://raw.githubusercontent.com/udacity/DevOps_Microservices/master/Lesson-2-Docker-format-containers/class-demos/.circleci/config.yml)
--   Add a status badge using this template: `[![<github_username>](https://circleci.com/gh/<github_username>/<repository>.svg?style=svg)](https://circleci.com/gh/<github_username>/<repository>)` replace `<github_username>` and `<repository>` with your data. e.g: `[![danilobrinu](https://circleci.com/gh/danilobrinu/udacity-cloud-devops-engineer-project-4.svg?style=svg)](https://circleci.com/gh/danilobrinu/udacity-cloud-devops-engineer-project-4)` and paste on top of your readme file.
+- Create a [CircleCI Account](https://circleci.com/) (use your Github account for a better integration)
+- Create a config using this [template](https://raw.githubusercontent.com/udacity/DevOps_Microservices/master/Lesson-2-Docker-format-containers/class-demos/.circleci/config.yml)
+- Add a status badge using this template: `[![<github_username>](https://circleci.com/gh/<github_username>/<repository>.svg?style=svg)](https://circleci.com/gh/<github_username>/<repository>)` replace `<github_username>` and `<repository>` with your data. e.g: `[![inafea](https://circleci.com/gh/inafea/Operationalize-a-Machine-Learning-Microservice-API.svg?style=svg)](https://circleci.com/gh/inafea/Operationalize-a-Machine-Learning-Microservice-API)` and paste on top of your readme file.
 
 ## Workarounds
 
